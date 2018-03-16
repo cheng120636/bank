@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bdqn.dao.TransactionRecordMapper">
+    <resultMap id="transactionMap" type="TransactionRecord">
+        <id property="id" column="id"/>
+    </resultMap>
+    <update id="addTransactionRecord" parameterType="TransactionRecord">
+        insert into transactionrecord values(null,#{cardNo},now(),#{transactionAmount},#{balance},#{transactionType},#{remark})
+    </update>
+
+    <select id="queryAllBytransactionDate"  resultMap="transactionMap">
+        SELECT * FROM transactionRecord WHERE transactionDate BETWEEN #{beginDate} AND #{endDate} and cardNo=#{carNo}
+    </select>
+</mapper>
