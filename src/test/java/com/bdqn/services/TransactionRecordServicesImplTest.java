@@ -23,6 +23,7 @@ public class TransactionRecordServicesImplTest {
     @Test
     public void queryAllBytransactionDate() throws Exception {
         System.out.println("1");
+        System.out.println("2");
 
         List<TransactionRecord> list = transactionRecordServices.queryAllBytransactionDate(
                 new SimpleDateFormat("yyyy-MM-dd").parse("2018-03-9"),
